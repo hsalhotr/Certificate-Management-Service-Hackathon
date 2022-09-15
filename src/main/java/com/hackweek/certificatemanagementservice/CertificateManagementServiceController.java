@@ -5,6 +5,7 @@ import com.hackweek.certificatemanagementservice.signing.SignOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.security.Security;
+import java.io.IOException;
 
 @RestController
 public class CertificateManagementServiceController {
