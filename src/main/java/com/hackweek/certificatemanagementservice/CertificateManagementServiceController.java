@@ -11,6 +11,12 @@ public class CertificateManagementServiceController {
     @RequestMapping("/sign")
     public String sign() throws Exception {
 
+        try {
+            Security.addProvider(new com.cavium.provider.CaviumProvider());
+        } catch (IOException ex) {
+            System.out.println(ex);
+            return;
+        }
         // login to hsm
         LoginHSM.login();
 

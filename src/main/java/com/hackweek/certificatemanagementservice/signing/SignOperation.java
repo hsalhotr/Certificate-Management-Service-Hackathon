@@ -45,12 +45,12 @@ public class SignOperation {
     private static byte[] ORGANIZATION_UNIT_OID = new byte[] { (byte) 0x55, (byte) 0x04, (byte) 0x0B };
 
     public static void performSignOps() throws Exception {
-        try {
-            Security.addProvider(new com.cavium.provider.CaviumProvider());
-        } catch (IOException ex) {
-            System.out.println(ex);
-            return;
-        }
+//        try {
+//            Security.addProvider(new com.cavium.provider.CaviumProvider());
+//        } catch (IOException ex) {
+//            System.out.println(ex);
+//            return;
+//        }
 
         // Wrapping keys must be persistent.
         KeyPair wrappingKeyPair = new AsymmetricKeys().generateRSAKeyPairWithParams(2048, "RSA Wrapping Test", true, true);
