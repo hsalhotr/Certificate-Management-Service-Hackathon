@@ -24,7 +24,7 @@ public class LoginHSM {
         loginWithExplicitCredentials(user, pass, partition);
 
 
-        logout();
+       // logout();
     }
     public static void loginWithExplicitCredentials(String user, String pass, String partition) {
         LoginManager lm = LoginManager.getInstance();
