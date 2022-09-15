@@ -4,8 +4,9 @@ import com.hackweek.certificatemanagementservice.awsHSM.LoginHSM;
 import com.hackweek.certificatemanagementservice.signing.SignOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import java.security.Security;
+
 import java.io.IOException;
+import java.security.Security;
 
 @RestController
 public class CertificateManagementServiceController {
@@ -16,8 +17,7 @@ public class CertificateManagementServiceController {
         try {
             Security.addProvider(new com.cavium.provider.CaviumProvider());
         } catch (IOException ex) {
-            System.out.println(ex);
-            return;
+            throw ex;
         }
         // login to hsm
         LoginHSM.login();
