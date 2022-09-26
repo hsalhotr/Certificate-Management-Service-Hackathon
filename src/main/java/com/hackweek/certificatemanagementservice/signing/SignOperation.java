@@ -73,7 +73,7 @@ public class SignOperation {
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-        sign("/home/ec2-user/files/inputDocument.pdf", "/home/ec2-user/files/signedDocument.pdf", chain, k);
+        sign("/home/ec2-user/Sample-AWS/files/inputDocument.pdf", "/home/ec2-user/Sample-AWS/files/signedDocument.pdf", chain, k);
 
     }
 
