@@ -45,12 +45,6 @@ public class SignOperation {
     private static byte[] ORGANIZATION_UNIT_OID = new byte[] { (byte) 0x55, (byte) 0x04, (byte) 0x0B };
 
     public static void performSignOps() throws Exception {
-//        try {
-//            Security.addProvider(new com.cavium.provider.CaviumProvider());
-//        } catch (IOException ex) {
-//            System.out.println(ex);
-//            return;
-//        }
 
         // Wrapping keys must be persistent.
         KeyPair wrappingKeyPair = new AsymmetricKeys().generateRSAKeyPairWithParams(2048, "RSA Wrapping Test", true, true);
@@ -79,7 +73,7 @@ public class SignOperation {
 
         ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-        sign("sample.pdf", chain, k);
+        sign("/home/ec2-user/files/inputDocument.pdf", "/home/ec2-user/output/signedDocument.pdf", chain, k);
 
     }
 
@@ -174,9 +168,9 @@ public class SignOperation {
         return name;
     }
 
-    public static void sign(String src, Certificate[] chain, Key k) throws IOException, DocumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException, CertificateEncodingException {
+    public static void sign(String src, String dest, Certificate[] chain, Key k) throws IOException, DocumentException, NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException, CertificateEncodingException {
         PdfReader pdfReader = new PdfReader(src);
-        FileOutputStream os = new FileOutputStream("output/sample-out.pdf");
+        FileOutputStream os = new FileOutputStream(dest);
         PdfStamper signer = PdfStamper.createSignature(pdfReader, os, '\0');
 
         Calendar signDate = Calendar.getInstance();

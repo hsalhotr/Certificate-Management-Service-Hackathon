@@ -14,13 +14,6 @@ public class LoginHSM {
 
         String user = "example_user", pass="NewPassword", partition="PARTITION_1";
 
-//        try {
-//            Security.addProvider(new com.cavium.provider.CaviumProvider());
-//        } catch (IOException ex) {
-//            System.out.println(ex);
-//            return;
-//        }
-
         loginWithExplicitCredentials(user, pass, partition);
 
 
